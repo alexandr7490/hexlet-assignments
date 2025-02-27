@@ -14,9 +14,11 @@ public class Application {
         // BEGIN
 for (Method ad : Address.class.getDeclaredMethods()){
     if (ad.isAnnotationPresent(Inspect.class)){
-        System.out.println("Method " + ad.getName() + " returns a value of type " + ad.getReturnType());
-    //System.out.printf("Method %s returns a value of type %s." ,ad.getName(),ad.getAnnotatedReturnType());
-    //System.out.println();
+        String type=ad.getReturnType().toString();
+        String[] words = type.split("\\.");
+        type=words[words.length-1];
+        System.out.println("Method " + ad.getName() + " returns a value of type " + type);
+
     }
 }
         // END
