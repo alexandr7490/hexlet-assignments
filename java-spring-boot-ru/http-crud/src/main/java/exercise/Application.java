@@ -25,9 +25,9 @@ public class Application {
     public List<Post> show(@RequestParam (value = "limit", defaultValue="10") Integer limit, @RequestParam (value = "page", defaultValue="0") Integer offset) {
         //return posts.stream().limit(limit).offset(offset).toList();
         return posts.stream()
-                //.limit(limit)
+                .limit(limit)
                 //.filter(p -> ((Integer.parseInt(p.getId().replaceAll("post",""))<(limit+1)*offset)&&(Integer.parseInt(p.getId().replaceAll("post",""))>(limit)*offset)))
-                .filter(p -> ((Integer.parseInt(p.getId().replaceAll("post",""))>(offset*limit))&&(Integer.parseInt(p.getId().replaceAll("post",""))<=(offset+1)*limit)))
+                //.filter(p -> ((Integer.parseInt(p.getId().replaceAll("post",""))>(offset*limit))&&(Integer.parseInt(p.getId().replaceAll("post",""))<=(offset+1)*limit)))
                 .toList();
     }
 
